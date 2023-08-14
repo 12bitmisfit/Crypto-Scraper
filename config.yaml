@@ -1,0 +1,67 @@
+exchanges:
+  crypto:
+    enabled: True
+    url: "wss://stream.crypto.com/v2/market"
+    trading_pairs:
+      - BTC_USD
+      - LTC_USD
+      - ETH_USD
+      - XCH_USD
+    channels:
+      - ticker
+      - book
+      - candlestick
+      - trade
+    intervals:
+      ticker: null
+      book: 150
+      candlestick: .1m
+      trade: null
+  binance:
+    enabled: True
+    url: "wss://data-stream.binance.vision/ws/"
+    trading_pairs:
+      - BTCUSDT
+      - LTCUSDT
+      - ETHUSDT
+    channels:
+      - trade
+      - kline
+      - bookTicker
+      - depth
+    intervals:
+      trade: null
+      kline: 1m
+      bookTicker: null
+      depth: 20
+
+debugging: False
+
+storage:
+  max_length: 100
+  csv:
+    enabled: True
+    file_suffix: .csv
+  sqlite:
+    enabled: True
+    database: crypto_sockets_sqlite.db
+  mysql:
+    enabled: True
+    database: your_database_name
+    user: your_user_name
+    password: your_password
+    host: your_host
+    port: your_port
+  postgresql:
+    enabled: True
+    database: your_database_name
+    user: your_user_name
+    password: your_password
+    host: your_host
+    port: your_port
+
+webserver:
+  url: '0.0.0.0'
+  json_port: 4123
+  http_port: 80
+  logging: False
